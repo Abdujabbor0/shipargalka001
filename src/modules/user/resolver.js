@@ -2,7 +2,7 @@ const model = require('./model.js')
 const jwt = require ('jsonwebtoken')
 const path = require ('path')
 const fs = require ('fs')
-let ip = __dirname
+let ip = "https://shipargalka.herokuapp.com"
 module.exports = {
 	Query: {
 		users: async (_, args) => {
