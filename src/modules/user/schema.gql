@@ -1,0 +1,60 @@
+scalar Email
+scalar Any
+
+
+input Pagination {
+	page: Int = 1
+	limit: Int = 2
+}
+
+
+type Query {
+	users(
+			userid: ID
+			active: Boolean
+			search: String
+			pagination: Pagination = {}
+	): [User!]!
+}
+
+type Mutation {
+	Put(
+		userid: ID!
+		username: String
+		fullname: String
+		email: Email
+		password: String
+		active: Boolean
+	): Response!
+	Register(
+		username: String!
+		fullname: String!
+		email: Email!
+		password: String!
+		active: Boolean!
+		file: Upload!
+	): Response!
+	Delete(
+		userid: ID!
+		password: String!
+	): Response!
+}
+type User {
+	userid: ID!
+	username: String!
+	fullname: String!
+	active: Boolean
+	email: Email!
+	imagelink: String
+	
+}
+
+type Response {
+	status: String!
+	message: String!
+	user: User
+	image: Any
+	token: Any
+}
+
+
