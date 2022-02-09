@@ -2,7 +2,7 @@ const model = require('./model.js')
 const jwt = require ('jsonwebtoken')
 const path = require ('path')
 const fs = require ('fs')
-let ip = "http://localhost:2345"
+let ip = __dirname
 module.exports = {
 	Query: {
 		users: async (_, args) => {
